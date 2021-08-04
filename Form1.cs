@@ -24,7 +24,7 @@ namespace Utilites
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            LoadNotepad();
         }
 
         private void TSMIExit_Click(object sender, EventArgs e)
@@ -71,6 +71,69 @@ namespace Utilites
             num = random.Next(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
 
             labelRandom.Text=num.ToString();
+
+            if(CBRandom.Checked)
+            if (TBRandom.Text.IndexOf(num.ToString())==-1)
+                TBRandom.AppendText(num.ToString() + Environment.NewLine);
+
+        }
+
+        private void BRandomCler_Click(object sender, EventArgs e)
+        {
+            TBRandom.Clear();
+
+        }
+
+        private void BRandomCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(TBRandom.Text);
+        }
+
+        private void TSMIInserDate_Click(object sender, EventArgs e)
+        {
+            RTBNotepad.AppendText(DateTime.Now.ToShortDateString()+Environment.NewLine);
+        }
+
+        private void TSMIInserTime_Click(object sender, EventArgs e)
+        {
+            RTBNotepad.AppendText(DateTime.Now.ToShortTimeString() + Environment.NewLine);
+        }
+
+        private void TSMISave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RTBNotepad.SaveFile("notepad.rtf");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ошибка при сохранинии");
+            }
+
+            
+
+        }
+
+        void LoadNotepad()
+        {
+            try
+            {
+                RTBNotepad.LoadFile("notepad.rtf");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ошибка при загрузке");
+            }
+        }
+
+        private void TSMIDownload_Click(object sender, EventArgs e)
+        {
+            LoadNotepad();
+            
+
+            
         }
     }
 }
