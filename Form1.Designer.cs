@@ -59,6 +59,20 @@ namespace Utilites
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMISave = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIDownload = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.CLBPass = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BCreatePassword = new System.Windows.Forms.Button();
+            this.TBPassword = new System.Windows.Forms.TextBox();
+            this.NUDPassLeng = new System.Windows.Forms.NumericUpDown();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.CBFrom = new System.Windows.Forms.ComboBox();
+            this.CBTo = new System.Windows.Forms.ComboBox();
+            this.BConvert = new System.Windows.Forms.Button();
+            this.TBFrom = new System.Windows.Forms.TextBox();
+            this.TBTo = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CBMetric = new System.Windows.Forms.ComboBox();
             Counter = new System.Windows.Forms.TabControl();
             Counter.SuspendLayout();
             this.Счётчик1.SuspendLayout();
@@ -67,10 +81,15 @@ namespace Utilites
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPassLeng)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Counter
             // 
+            Counter.Controls.Add(this.tabPage4);
+            Counter.Controls.Add(this.tabPage3);
             Counter.Controls.Add(this.Счётчик1);
             Counter.Controls.Add(this.tabPage2);
             Counter.Controls.Add(this.tabPage1);
@@ -377,6 +396,176 @@ namespace Utilites
             this.TSMIDownload.Text = "Загрузить";
             this.TSMIDownload.Click += new System.EventHandler(this.TSMIDownload_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.NUDPassLeng);
+            this.tabPage3.Controls.Add(this.TBPassword);
+            this.tabPage3.Controls.Add(this.BCreatePassword);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.CLBPass);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(792, 400);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Генератор паролей";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // CLBPass
+            // 
+            this.CLBPass.CheckOnClick = true;
+            this.CLBPass.FormattingEnabled = true;
+            this.CLBPass.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.CLBPass.Items.AddRange(new object[] {
+            "Цифры",
+            "Прописные буквы",
+            "Строчные буквы",
+            "Спец. символы:@,<,>,?,#,$,%,^,&,*,(,),_,+,~"});
+            this.CLBPass.Location = new System.Drawing.Point(9, 16);
+            this.CLBPass.Name = "CLBPass";
+            this.CLBPass.Size = new System.Drawing.Size(304, 94);
+            this.CLBPass.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Длина пароля";
+            // 
+            // BCreatePassword
+            // 
+            this.BCreatePassword.Location = new System.Drawing.Point(238, 116);
+            this.BCreatePassword.Name = "BCreatePassword";
+            this.BCreatePassword.Size = new System.Drawing.Size(75, 23);
+            this.BCreatePassword.TabIndex = 3;
+            this.BCreatePassword.Text = "Создать пароль";
+            this.BCreatePassword.UseVisualStyleBackColor = true;
+            this.BCreatePassword.Click += new System.EventHandler(this.BCreatePassword_Click);
+            // 
+            // TBPassword
+            // 
+            this.TBPassword.Location = new System.Drawing.Point(9, 158);
+            this.TBPassword.Name = "TBPassword";
+            this.TBPassword.Size = new System.Drawing.Size(302, 20);
+            this.TBPassword.TabIndex = 4;
+            // 
+            // NUDPassLeng
+            // 
+            this.NUDPassLeng.Location = new System.Drawing.Point(112, 119);
+            this.NUDPassLeng.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUDPassLeng.Name = "NUDPassLeng";
+            this.NUDPassLeng.Size = new System.Drawing.Size(120, 20);
+            this.NUDPassLeng.TabIndex = 5;
+            this.NUDPassLeng.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.NUDPassLeng.ValueChanged += new System.EventHandler(this.NUDPassLeng_ValueChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.CBMetric);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.TBTo);
+            this.tabPage4.Controls.Add(this.TBFrom);
+            this.tabPage4.Controls.Add(this.BConvert);
+            this.tabPage4.Controls.Add(this.CBTo);
+            this.tabPage4.Controls.Add(this.CBFrom);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(792, 400);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Конвертор";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // CBFrom
+            // 
+            this.CBFrom.FormattingEnabled = true;
+            this.CBFrom.Items.AddRange(new object[] {
+            "mm",
+            "cm",
+            "dm",
+            "m",
+            "km",
+            "mile"});
+            this.CBFrom.Location = new System.Drawing.Point(52, 61);
+            this.CBFrom.Name = "CBFrom";
+            this.CBFrom.Size = new System.Drawing.Size(121, 21);
+            this.CBFrom.TabIndex = 0;
+            this.CBFrom.Text = "mm";
+            // 
+            // CBTo
+            // 
+            this.CBTo.FormattingEnabled = true;
+            this.CBTo.Items.AddRange(new object[] {
+            "mm",
+            "cm",
+            "dm",
+            "m",
+            "km",
+            "mile"});
+            this.CBTo.Location = new System.Drawing.Point(403, 60);
+            this.CBTo.Name = "CBTo";
+            this.CBTo.Size = new System.Drawing.Size(121, 21);
+            this.CBTo.TabIndex = 1;
+            this.CBTo.Text = "mm";
+            // 
+            // BConvert
+            // 
+            this.BConvert.Location = new System.Drawing.Point(253, 58);
+            this.BConvert.Name = "BConvert";
+            this.BConvert.Size = new System.Drawing.Size(75, 23);
+            this.BConvert.TabIndex = 2;
+            this.BConvert.Text = "Конвертер";
+            this.BConvert.UseVisualStyleBackColor = true;
+            this.BConvert.Click += new System.EventHandler(this.BConvert_Click);
+            // 
+            // TBFrom
+            // 
+            this.TBFrom.Location = new System.Drawing.Point(52, 217);
+            this.TBFrom.Name = "TBFrom";
+            this.TBFrom.Size = new System.Drawing.Size(121, 20);
+            this.TBFrom.TabIndex = 3;
+            this.TBFrom.Text = "1";
+            // 
+            // TBTo
+            // 
+            this.TBTo.Location = new System.Drawing.Point(403, 217);
+            this.TBTo.Name = "TBTo";
+            this.TBTo.ReadOnly = true;
+            this.TBTo.Size = new System.Drawing.Size(121, 20);
+            this.TBTo.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(253, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "<= =>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CBMetric
+            // 
+            this.CBMetric.FormattingEnabled = true;
+            this.CBMetric.Items.AddRange(new object[] {
+            "Длина",
+            "Вес"});
+            this.CBMetric.Location = new System.Drawing.Point(253, 119);
+            this.CBMetric.Name = "CBMetric";
+            this.CBMetric.Size = new System.Drawing.Size(75, 21);
+            this.CBMetric.TabIndex = 6;
+            this.CBMetric.Text = "длина";
+            this.CBMetric.SelectedIndexChanged += new System.EventHandler(this.CBMetric_SelectedIndexChanged);
+            // 
             // Utilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,6 +587,11 @@ namespace Utilites
             this.tabPage1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPassLeng)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +628,20 @@ namespace Utilites
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem TSMISave;
         private System.Windows.Forms.ToolStripMenuItem TSMIDownload;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckedListBox CLBPass;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TBPassword;
+        private System.Windows.Forms.Button BCreatePassword;
+        private System.Windows.Forms.NumericUpDown NUDPassLeng;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TextBox TBTo;
+        private System.Windows.Forms.TextBox TBFrom;
+        private System.Windows.Forms.Button BConvert;
+        private System.Windows.Forms.ComboBox CBTo;
+        private System.Windows.Forms.ComboBox CBFrom;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CBMetric;
     }
 }
 
